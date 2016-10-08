@@ -1,0 +1,31 @@
+{
+  "name": "swank-material",
+  "homepage": "https://github.com/BxnIO/swank-material",
+  "authors": [
+    "Mark Litchfield <m@bxn.io>"
+  ],
+  "version": "0.0.1",
+  "description": "Angular 1.5+ components using Angular Material",
+  "main": "dist/swank-material.js",
+  "keywords": [
+    "swank",
+    "swagger",
+    "angular",
+    "material design"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "swank": "https://github.com/BxnIO/swank.git",
+    "showdown": "^1.4.3",
+    "angular-material": "^1.1.1",
+    "angular-sanitize": "^1.5.8"
+  }
+}

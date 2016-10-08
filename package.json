@@ -1,0 +1,37 @@
+{
+  "name": "swank-material",
+  "version": "1.0.0",
+  "description": "Angular 1.5+ components using Angular Material",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BxnIO/swank-material.git"
+  },
+  "keywords": [
+    "swagger",
+    "swank",
+    "angular",
+    "material design"
+  ],
+  "author": "Mark Litchfield <m@bxn.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BxnIO/swank-material/issues"
+  },
+  "homepage": "https://github.com/BxnIO/swank-material#readme",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^5.0.0",
+    "gulp-inject": "^4.1.0",
+    "gulp-open": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "wiredep": "^4.0.0"
+  }
+}
