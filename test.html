@@ -13,7 +13,7 @@
     <!-- inject:css -->
     <!-- endinject -->
   </head>
-  <body ng-cloak layout-fill layout="column">
+  <body ng-cloak layout-fill layout="column" ng-controller="App as app">
     <md-toolbar class="md-whiteframe-z2">
       <div class="md-toolbar-tools">
         <h3>Swank - Material Design</h3>
@@ -22,9 +22,14 @@
     <md-content layout-padding layout="row" layout-align="space-around start" flex>
       <div hide-xs flex></div>
       <div flex="90" flex-xs="100">
+        <md-input-container class="md-block">
+          <label>Swagger JSON URL</label>
+          <input type="text" ng-model="app.swagger" aria-label="Swagger JSON URL">
+        </md-input-container>
         <!-- <swank-material api="'https://s3.amazonaws.com/developers.foozor.com/content-api.json'"></swank-material> -->
         <!-- <swank-material api="'https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v2.0/json/petstore.json'"></swank-material> -->
-        <swank-material api="'http://petstore.swagger.io/v2/swagger.json'" group-by="route"></swank-material>
+        <!-- <swank-material api="'http://petstore.swagger.io/v2/swagger.json'"></swank-material> -->
+        <swank-material api="app.swagger" group-by="route"></swank-material>
       </div>
       <div hide-xs flex></div>
     </md-content>
@@ -46,7 +51,14 @@
     <script>
       (function(angular) {
         'use strict';
-        angular.module('tester', ['ngSanitize', 'ngAnimate', 'ngMaterial', 'ngMessages', 'swank.material']);
+        function App(){
+          angular.extend(this, {
+            swagger: this.swagger || 'https://s3.amazonaws.com/developers.foozor.com/content-api.json'
+          });
+        }
+        App.$inject=[];
+        angular.module('tester', ['ngSanitize', 'ngAnimate', 'ngMaterial', 'ngMessages', 'swank.material'])
+          .controller('App', App);
       })(angular);
     </script>
   </body>
