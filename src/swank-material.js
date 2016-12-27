@@ -1,45 +1,5 @@
-/* globals showdown */
 (function(angular) {
   'use strict';
-  /**
-   * Tests to ensure that Lodash available.
-   */
-  function LoDashFactory($window, $log) {
-    try {
-      if (!$window._) {
-        throw new Error('LoDash library not found');
-      }
-      return $window._;
-    } catch (err) {
-      $log.error(err);
-    }
-  }
-  LoDashFactory.$inject = ['$window', '$log'];
-  /**
-   * Markdown content filter / parser
-   */
-  function SwankParseMDFilter($log) {
-    return function(content) {
-      if (typeof content === 'string') {
-        try {
-          if (!_.isObject(showdown)) {
-            throw new Error('Showdown library not found.');
-          }
-          var converter = new showdown.Converter({
-            ghCodeBlocks: true,
-            tasklists: true,
-            tables: true,
-            omitExtraWLInCodeBlocks: true
-          });
-          return converter.makeHtml(content);
-        } catch (err) {
-          $log.error(err);
-          return;
-        }
-      }
-    };
-  }
-  SwankParseMDFilter.$inject = ['$log'];
   /**
    * This is the controller for the prime component. 
    * 
@@ -205,8 +165,6 @@
   };
 
   angular.module('swank.material', ['swank'])
-    .factory('_', LoDashFactory)
-    .filter('parseMD', SwankParseMDFilter)
     .component('swankMaterial', SwankMaterialComponent)
     .component('swankMaterialInfo', SwankMaterialInfoComponent)
     .component('swankMaterialListing', SwankMaterialListingComponent)
