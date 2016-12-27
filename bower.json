@@ -4,7 +4,7 @@
   "authors": [
     "Mark Litchfield <m@bxn.io>"
   ],
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Angular 1.5+ components using Angular Material",
   "main": "dist/swank-material.js",
   "keywords": [
