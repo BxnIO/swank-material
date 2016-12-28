@@ -16,6 +16,12 @@
       $scope.$broadcast('swankready');
       _self.loading = false;
     });
+    _self.dumpYaml = function() {
+      console.log(_self.api.exportYaml());
+    };
+    _self.dumpJson = function() {
+      console.log(_self.api.exportJson());
+    };
     _self.$onChanges = function(changed) {
       if (changed.api.currentValue !== changed.api.previousValue) {
         _self.api = new Swank(changed.api.currentValue);
@@ -27,6 +33,8 @@
     bindings: {api: '<', groupBy:'@?'},
     controller: SwankMaterialController,
     template: [
+      '<md-button type="button" class="md-raised" ng-click="$ctrl.dumpYaml()">Dump as YAML</md-button>',
+      '<md-button type="button" class="md-raised" ng-click="$ctrl.dumpJson()">Dump as JSON</md-button>',
       '<md-content ng-if="$ctrl.loading" layout="row" layout-sm="column" layout-align="space-around">',
         '<md-progress-circular md-mode="indeterminate"></md-progress-circular>',
       '</md-content>',
